@@ -22,7 +22,7 @@ public class WebClientBuilderIT {
         final HttpMethod method = HttpMethod.GET;
 
         // When
-        final Mono<People> response = WebClientBuilderExecutor
+        final Mono<People> response = WebClientBuilder
                 .of(host)
                 .uri(uri)
                 .method(method)
@@ -44,7 +44,7 @@ public class WebClientBuilderIT {
         final HttpMethod method = HttpMethod.GET;
 
         // When
-        final Mono<Starship> response = WebClientBuilderExecutor
+        final Mono<Starship> response = WebClientBuilder
                 .of(host)
                 .uri(uri)
                 .method(method)
@@ -70,7 +70,7 @@ public class WebClientBuilderIT {
         final HttpMethod method = HttpMethod.GET;
 
         // When
-        final Mono<HttpbinResponse> response = WebClientBuilderExecutor.of(host).uri(uri).method(method)
+        final Mono<HttpbinResponse> response = WebClientBuilder.of(host).uri(uri).method(method)
                 .withResponseType(HttpbinResponse.class).execute();
         final HttpbinResponse httpBinResponse = response.block();
 
@@ -89,7 +89,7 @@ public class WebClientBuilderIT {
         final HttpMethod method = HttpMethod.POST;
 
         // When
-        final Mono<HttpbinResponse> response = WebClientBuilderExecutor.of(host).uri(uri).method(method)
+        final Mono<HttpbinResponse> response = WebClientBuilder.of(host).uri(uri).method(method)
                 .withResponseType(HttpbinResponse.class).execute();
         final HttpbinResponse httpBinResponse = response.block();
 
@@ -108,7 +108,7 @@ public class WebClientBuilderIT {
         final HttpMethod method = HttpMethod.PUT;
 
         // When
-        final Mono<HttpbinResponse> response = WebClientBuilderExecutor.of(host).uri(uri).method(method)
+        final Mono<HttpbinResponse> response = WebClientBuilder.of(host).uri(uri).method(method)
                 .withResponseType(HttpbinResponse.class).execute();
         final HttpbinResponse httpBinResponse = response.block();
 
@@ -126,7 +126,7 @@ public class WebClientBuilderIT {
         final HttpMethod method = HttpMethod.DELETE;
 
         // When
-        final Mono<HttpbinResponse> response = WebClientBuilderExecutor.of(host).uri(uri).method(method)
+        final Mono<HttpbinResponse> response = WebClientBuilder.of(host).uri(uri).method(method)
                 .withResponseType(HttpbinResponse.class).execute();
         final HttpbinResponse httpBinResponse = response.block();
 
@@ -145,7 +145,7 @@ public class WebClientBuilderIT {
         final HttpbinRequest requestBody = new HttpbinRequest("Hello World!");
 
         // When
-        final Mono<HttpbinResponse> response = WebClientBuilderExecutor.of(host).uri(uri).method(method)
+        final Mono<HttpbinResponse> response = WebClientBuilder.of(host).uri(uri).method(method)
                 .withBody(requestBody).withResponseType(HttpbinResponse.class).execute();
 
         final HttpbinResponse httpBinResponse = response.block();
